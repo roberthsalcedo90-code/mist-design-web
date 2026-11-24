@@ -1311,12 +1311,94 @@ button { cursor: pointer; }
   margin: 0;
 }
 
+.reviews-blobs-2 {
+  max-width: 1020px;
+  margin: 2.4rem auto 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  align-items: stretch;
+}
+.review-blob-card {
+  background: var(--forest);
+  color: #FFFFFF;
+  border-radius: 34% 66% 58% 42% / 44% 62% 38% 56%;
+  padding: clamp(2.6rem, 4vw, 3.3rem) clamp(2.4rem, 4.2vw, 3.8rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.35rem;
+  min-height: 295px;
+  transition: transform 0.28s var(--ease);
+}
+.review-blob-card:hover { transform: translateY(-4px); }
+.review-blob-stars {
+  color: #FFFFFF;
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.7rem;
+}
+.review-blob-quote {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+.review-blob-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+.review-blob-author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.review-blob-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+}
+.review-blob-vermas {
+  background: #3E563F;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 0.44rem 1.25rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.review-blob-vermas:hover { background: var(--terra); }
+.reviews-follow-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  color: var(--forest);
+  font-size: 0.96rem;
+}
+.reviews-follow-bar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forest);
+  transition: color 0.2s, transform 0.2s;
+}
+.reviews-follow-bar a:hover { color: var(--terra); transform: translateY(-2px); }
+
 @media (max-width: 900px) {
   .banner-feature-card,
   .chrome-editorial-grid,
   .collection-mosaic-grid,
   .manifiesto-hero-grid,
-  .essence-top-grid { grid-template-columns: 1fr; }
+  .essence-top-grid,
+  .reviews-blobs-2 { grid-template-columns: 1fr; }
+  .review-blob-card { border-radius: 28px; padding: 2rem 1.65rem; min-height: auto; }
   .manifiesto-hero-banner { background-image: none; padding: 3rem 1.25rem 0; min-height: auto; }
   .manifiesto-hero-copy { align-items: center; text-align: center; padding: 1.5rem 0 2rem; }
   .essence-top-grid > div { text-align: center !important; }
