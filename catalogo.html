@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — MIST DESIGN</title>
+  <meta name="description" content="Una colección de 75 piezas únicas en mobiliario Mid-Century artesanal colombiano." />
+  <link rel="stylesheet" href="assets/mist-theme.css" />
+</head>
+<body>
+
+  <section class="catalog-header" id="buscar">
+    <div class="container">
+      <span class="mist-kicker">FURNITURE MENÚ · TIENDA CATÁLOGO</span>
+      <h1 class="mist-h1" id="catHeading">
+        75 <span class="font-bimbo" style="color:var(--forest-btn); font-size:1.22em;">piezas</span> únicas
+      </h1>
+      <p id="catDesc" style="max-width:580px; color:var(--muted); margin:0.75rem auto 0; font-size:0.88rem;">
+        Mobiliario Mid-Century artesanal hecho bajo pedido en Colombia.
+      </p>
+      <div class="search-pill">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#616161" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" id="searchInput" placeholder="Buscar sofá, poltrona, cromo, mascota..." aria-label="Buscar piezas" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ESCAPARATE VISUAL VERANO ATEMPORAL (SE ACTIVA CON ?col=Verano Atemporal) -->
+  <section class="container" id="exteriorBanner" style="display:none; margin-bottom:2rem;">
+    <div class="ext-banner-panel">
+      <div class="split-band">
+        <div>
+          <span class="mist-kicker" style="color:var(--terra);">MUEBLES DE EXTERIOR ESTILO MID-CENTURY</span>
+          <h2 class="mist-h1" style="margin-bottom:0.85rem;">
+            Un <span class="font-bimbo" style="color:var(--forest-btn); font-size:1.28em;">Verano</span> atemporal
+          </h2>
+          <p style="font-size:0.9rem; color:var(--body); margin:0 0 1rem;">
+            El exterior es tu nueva sala. Esta colección reinterpreta el espíritu Mid-Century mediante líneas curvas continuas, colores vibrantes, tubería de hierro y soldadura de precisión para terrazas y jardines en Colombia.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; font-size:0.74rem; font-weight:700; color:var(--forest);">
+            <span class="filter-pill" style="background:#fff; cursor:default;">Uniones discretas</span>
+            <span class="filter-pill" style="background:#fff; cursor:default;">Curvas continuas</span>
+            <span class="filter-pill" style="background:#fff; cursor:default;">Patas regulables</span>
+            <span class="filter-pill" style="background:#fff; cursor:default;">Respaldo estructural</span>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/las-mejores-historias-se-cuentan-en-tu-hogar-4-ewbXlIjbI7yF83bg.png" alt="Verano Atemporal Mist Exterior" style="border-radius:14px; aspect-ratio:4/3; object-fit:cover; width:100%;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/las-mejores-historias-se-cuentan-en-tu-hogar-6-tKms2XzHUO75mueC.png" alt="Mobiliario de Terraza Mist" style="border-radius:14px; aspect-ratio:4/3; object-fit:cover; width:100%;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/las-mejores-historias-se-cuentan-en-tu-hogar-7-U2SOGaBRyteliZiG.png" alt="Comedor exterior Mid-Century" style="border-radius:14px; aspect-ratio:4/3; object-fit:cover; width:100%;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/las-mejores-historias-se-cuentan-en-tu-hogar-5-ZGSgxGt1dwXAujea.png" alt="Detalles en hierro exterior Mist" style="border-radius:14px; aspect-ratio:4/3; object-fit:cover; width:100%;">
+        </div>
+      </div>
+
+      <div class="ext-attr-grid">
+        <div class="ext-attr-card">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/resistente-al-clima-KObr02BkFlcI5hDr.png" alt="Resistente al clima">
+          <strong style="display:block; font-size:0.84rem; color:var(--ink);">Resistente al clima</strong>
+          <span style="font-size:0.74rem; color:var(--muted);">Fabricado para soportar diversas condiciones ambientales.</span>
+        </div>
+        <div class="ext-attr-card">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/pintura-WxoTm8sjaepK2CdJ.png" alt="Pintura electrostática">
+          <strong style="display:block; font-size:0.84rem; color:var(--ink);">Pintura electrostática</strong>
+          <span style="font-size:0.74rem; color:var(--muted);">Protección contra la corrosión y alta durabilidad.</span>
+        </div>
+        <div class="ext-attr-card">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/faicil-l-limpiezas-Nv2F2mJCJ5i2HPNP.png" alt="Fácil limpieza">
+          <strong style="display:block; font-size:0.84rem; color:var(--ink);">Fácil limpieza</strong>
+          <span style="font-size:0.74rem; color:var(--muted);">Materiales diseñados para mantenimiento rápido.</span>
+        </div>
+        <div class="ext-attr-card">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/uso-exterior-BY7KOkgUnwXg6nub.png" alt="Uso exterior">
+          <strong style="display:block; font-size:0.84rem; color:var(--ink);">Uso exterior</strong>
+          <span style="font-size:0.74rem; color:var(--muted);">Especializado para terrazas, balcones y jardines.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVISIÓN PRINCIPAL: FILTROS + GRILLA DE PRODUCTOS -->
+  <section class="section-pad" style="padding-top:0.5rem;">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-pills" id="categoryPills"></div>
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <span style="font-size:0.74rem; color:var(--muted);" id="resultCount">75 piezas</span>
+          <select id="sortSelect" class="select-sort" aria-label="Ordenar productos">
+            <option value="featured">Ordenar: Destacados</option>
+            <option value="price-asc">Precio: Menor a mayor</option>
+            <option value="price-desc">Precio: Mayor a menor</option>
+            <option value="alpha">Nombre: A &rarr; Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <!-- DIVISIÓN AMBIENTES / PORTADAS ORIGINALES DE TIENDA-CATÁLOGO -->
+  <section class="section-pad band-sand">
+    <div class="container">
+      <div class="split-band" style="align-items:end; margin-bottom:2rem;">
+        <div>
+          <span class="mist-kicker">COLECCIONES POR AMBIENTE</span>
+          <h2 class="mist-h1">Tu estilo en <span class="font-bimbo" style="color:var(--terra); font-size:1.25em;">cada espacio</span></h2>
+        </div>
+        <p style="font-size:0.88rem; color:var(--body); margin:0; max-width:440px;">
+          Fabricamos piezas que van más allá de ser un mueble, son elementos que se vuelven protagonistas, una conversación, una historia. Pedazos de arte atemporales.
+        </p>
+      </div>
+
+      <div class="collection-mosaic-grid" id="spacesShowcaseGrid"></div>
+
+      <div class="split-band" style="margin-top:2.2rem; background:#FFFFFF; border-radius:20px; border:1px solid var(--hairline); padding:clamp(1.2rem, 2.5vw, 2rem);">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/gemini_generated_image_e0tp4ve0tp4ve0tp-R4GTP6i5uT31XQrL.png" alt="Editorial Mist Design" style="border-radius:14px; aspect-ratio:1; object-fit:cover; width:100%;">
+          <img src="https://assets.zyrosite.com/xnVtBOd44LiC4fNz/mist-kdGR7MPSlPR4ahtB.png" alt="Pieza Protagonista Mist" style="border-radius:14px; aspect-ratio:1; object-fit:cover; width:100%;">
+        </div>
+        <div>
+          <span class="mist-kicker" style="color:var(--terra);">¿IMAGINAS OTRO TAMAÑO O TELA?</span>
+          <h3 class="mist-h2" style="margin-bottom:0.65rem;">Personalización a medida</h3>
+          <p style="font-size:0.88rem; color:var(--body); margin:0 0 1.25rem;">
+            Cada diseño MIST puede fabricarse con dimensiones ajustadas y telas inteligentes antifluido / pet-friendly. Agenda tu reunión gratuita de 40 minutos.
+          </p>
+          <a href="contacto.html#personalizar" class="btn-mist">Personalizar producto (40 min) &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="data/mist-catalog.js"></script>
+  <script src="assets/mist-app.js"></script>
+  <script>
+    (function () {
+      const D = window.MIST_DATA;
+      const params = new URLSearchParams(location.search);
+      let activeCol = params.get('col') || '';
+      let onlyWish = params.get('wish') === '1';
+      let searchQ = params.get('q') || '';
+      let sortBy = 'featured';
+
+      const pillList = [
+        { id: '', label: 'Todo' },
+        { id: 'Sala', label: 'Sala' },
+        { id: 'Comedor', label: 'Comedor' },
+        { id: 'Habitación', label: 'Habitación' },
+        { id: 'Verano Atemporal', label: 'Verano Atemporal' },
+        { id: 'Estudio', label: 'Estudio' },
+        { id: 'Mascotas', label: 'Mascotas' },
+        { id: 'Iluminación', label: 'Iluminación' },
+        { id: 'Decoración y Styling', label: 'Decoración' },
+        { id: 'Cromos', label: 'Cromos' },
+        { id: 'Sofás', label: 'Sofás' },
+        { id: 'Poltronas', label: 'Poltronas' },
+        { id: 'Mesas', label: 'Mesas' },
+        { id: '__wish__', label: 'Favoritos ♥' }
+      ];
+
+      const spaceBanners = [
+        { col: 'Sala', label: 'Sala', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-2JIm3aqb7Oy07OC4.png' },
+        { col: 'Comedor', label: 'Comedor', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-d3WLLUtap5LYubDR.png' },
+        { col: 'Habitación', label: 'Habitación', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-5-e7VDfVf9ABHSlDej.png' },
+        { col: 'Verano Atemporal', label: 'Un verano atemporal', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-3-qQqd1TM1CBQuXPa1.png' },
+        { col: 'Estudio', label: 'Estudio', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-2-OcRWmjsRL8HGTCtL.png' },
+        { col: 'Iluminación', label: 'Iluminación & Styling', img: 'https://assets.zyrosite.com/xnVtBOd44LiC4fNz/fondo-navidad-4-g38oWWtZ7j0HYdUe.png' }
+      ];
+
+      document.getElementById('spacesShowcaseGrid').innerHTML = spaceBanners.map(sb => `
+        <button type="button" class="collection-mosaic-card" onclick="selectSpaceCol('${sb.col}')">
+          <img src="${sb.img}" alt="${sb.label}">
+          <span>
+            <strong style="display:block; font-size:1.05rem;">${sb.label}</strong>
+            <small style="opacity:0.86; font-size:0.74rem;">Explorar colección &rarr;</small>
+          </span>
+        </button>
+      `).join('');
+
+      window.selectSpaceCol = (col) => {
+        onlyWish = false;
+        activeCol = col;
+        renderPills();
+        renderProducts();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const searchEl = document.getElementById('searchInput');
+      const sortEl = document.getElementById('sortSelect');
+      searchEl.value = searchQ;
+
+      const renderPills = () => {
+        document.getElementById('categoryPills').innerHTML = pillList.map(p => {
+          const isActive = (p.id === '__wish__' && onlyWish) || (!onlyWish && activeCol === p.id);
+          return `<button type="button" class="filter-pill ${isActive ? 'active' : ''}" data-id="${p.id}">${p.label}</button>`;
+        }).join('');
+
+        document.querySelectorAll('.filter-pill[data-id]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            if (id === '__wish__') { onlyWish = !onlyWish; activeCol = ''; }
+            else { onlyWish = false; activeCol = (activeCol === id && id !== '') ? '' : id; }
+            renderPills();
+            renderProducts();
+          });
+        });
+      };
+
+      const renderProducts = () => {
+        let items = D.products.slice();
+        const extBanner = document.getElementById('exteriorBanner');
+        extBanner.style.display = (!onlyWish && activeCol === 'Verano Atemporal') ? 'block' : 'none';
+
+        if (onlyWish) {
+          const wish = MistApp.getWish();
+          items = items.filter(p => wish.includes(p.id));
+          document.getElementById('catHeading').innerHTML = `Tus <span class="font-bimbo" style="color:var(--terra); font-size:1.22em;">favoritos</span>`;
+          document.getElementById('catDesc').textContent = 'Piezas que guardaste para tu espacio.';
+        } else if (activeCol) {
+          items = items.filter(p => p.collections && p.collections.includes(activeCol));
+          const cleanName = activeCol.replace('✨ ', '');
+          const hasAccent = /[áéíóúüñÁÉÍÓÚÜÑ]/.test(cleanName);
+          document.getElementById('catHeading').innerHTML = hasAccent
+            ? `<span style="color:var(--forest-btn);">${cleanName}</span>`
+            : `<span class="font-bimbo" style="color:var(--forest-btn); font-size:1.28em;">${cleanName}</span>`;
+          const sp = D.spaces.find(s => s.id === activeCol);
+          document.getElementById('catDesc').textContent = sp ? sp.desc : `Selección curada en ${cleanName}.`;
+        } else {
+          document.getElementById('catHeading').innerHTML = `${D.products.length} <span class="font-bimbo" style="color:var(--forest-btn); font-size:1.22em;">piezas</span> únicas`;
+          document.getElementById('catDesc').textContent = 'Mobiliario Mid-Century artesanal hecho bajo pedido en Colombia.';
+        }
+
+        const q = searchQ.trim().toLowerCase();
+        if (q) {
+          items = items.filter(p => {
+            const hay = [
+              p.title, p.subtitle, p.excerpt,
+              ...(p.collections || []),
+              ...(p.variants || []).map(v => `${v.title} ${v.sku} ${(v.options || []).join(' ')}`)
+            ].join(' ').toLowerCase();
+            return hay.includes(q);
+          });
+        }
+
+        if (sortBy === 'price-asc') items.sort((a, b) => a.price - b.price);
+        else if (sortBy === 'price-desc') items.sort((a, b) => b.price - a.price);
+        else if (sortBy === 'alpha') items.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+
+        document.getElementById('resultCount').textContent = `${items.length} piezas`;
+        const grid = document.getElementById('catalogGrid');
+
+        if (!items.length) {
+          grid.innerHTML = `
+            <div style="grid-column:1/-1; padding:3rem 1.5rem; text-align:center; background:#fff; border-radius:20px; border:1px solid var(--hairline);">
+              <h3 class="mist-h2" style="margin-bottom:0.5rem;">Sin resultados</h3>
+              <p style="color:var(--muted); margin:0 0 1.25rem;">Prueba otro filtro o solicita una pieza personalizada a medida.</p>
+              <button type="button" class="btn-mist" onclick="location.href='catalogo.html'">Ver Todo el Catálogo</button>
+            </div>`;
+          return;
+        }
+        grid.innerHTML = items.map(MistApp.renderProductCard).join('');
+      };
+
+      searchEl.addEventListener('input', (e) => { searchQ = e.target.value; renderProducts(); });
+      sortEl.addEventListener('change', (e) => { sortBy = e.target.value; renderProducts(); });
+
+      renderPills();
+      renderProducts();
+    })();
+  </script>
+</body>
+</html>

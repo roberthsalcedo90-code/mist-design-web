@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pieza — MIST DESIGN</title>
+  <meta name="description" content="Ficha técnica, acabados y medidas de mobiliario Mid-Century artesanal MIST DESIGN." />
+  <link rel="stylesheet" href="assets/mist-theme.css" />
+</head>
+<body>
+
+  <main class="container" style="padding-top:1.75rem;">
+    <div id="pdpBreadcrumb" style="font-size:0.78rem; font-weight:600; color:var(--muted); margin-bottom:0.9rem;"></div>
+    <div id="pdpRoot"></div>
+  </main>
+
+  <section class="section-pad">
+    <div class="container">
+      <div class="manifesto-right-terra" style="min-height:auto; flex-direction:row; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+        <div>
+          <span class="mist-kicker" style="color:var(--sand);">PERSONALIZACIÓN A MEDIDA · GRATIS 40 MIN</span>
+          <h2 class="mist-h2" style="color:#FFFFFF;">
+            ¿Lo quieres <span class="font-bimbo" style="color:var(--sand); font-size:1.25em;">personalizar</span> en otro color o medida?
+          </h2>
+          <p style="font-size:0.88rem; color:rgba(255,255,255,0.88); max-width:540px; margin:0.5rem 0 0;">
+            Agenda una cita gratuita de 40 minutos con nuestro equipo en Bogotá o virtual.
+          </p>
+        </div>
+        <a href="contacto.html#personalizar" class="btn-mist-white">Agendar cita (40 min) &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:0.5rem;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+        <h2 class="mist-h2" style="font-size:2rem;">También te puede gustar</h2>
+        <a href="catalogo.html" class="btn-mist-outline">Ver todo el catálogo &rarr;</a>
+      </div>
+      <div class="product-grid" id="relatedGrid"></div>
+    </div>
+  </section>
+
+  <script src="data/mist-catalog.js"></script>
+  <script src="assets/mist-app.js"></script>
+  <script>
+    (function () {
+      const D = window.MIST_DATA;
+      const slug = new URLSearchParams(location.search).get('slug');
+      const product = D.products.find(p => p.slug === slug) || D.products[0];
+      if (!product) return;
+
+      document.title = `${product.title} | MIST DESIGN`;
+      const primaryCol = (product.collections && product.collections[0]) || 'Catálogo';
+      document.getElementById('pdpBreadcrumb').innerHTML = `
+        <a href="catalogo.html?col=${encodeURIComponent(primaryCol)}">&lsaquo; ${primaryCol}</a> &nbsp;/&nbsp; <span style="color:var(--ink);">${product.title}</span>
+      `;
+
+      // Inyección dinámica real de Schema.org Product JSON-LD (corrige el bug placeholder del sitio original)
+      const ld = document.createElement('script');
+      ld.type = 'application/ld+json';
+      ld.textContent = JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": product.title,
+        "image": product.images || [],
+        "description": product.excerpt,
+        "sku": (product.variants && product.variants[0] && product.variants[0].sku) || product.slug,
+        "brand": { "@type": "Brand", "name": "MIST DESIGN" },
+        "offers": {
+          "@type": "Offer",
+          "url": product.live_url || location.href,
+          "priceCurrency": "COP",
+          "price": String(product.price),
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      });
+      document.head.appendChild(ld);
+
+      let activeVariantIdx = 0;
+      let activeImgIdx = 0;
+      let qty = 1;
+
+      const renderPDP = () => {
+        const v = (product.variants && product.variants[activeVariantIdx]) || { price: product.price, sku: '', options: [], image: '' };
+        const gallery = product.images && product.images.length ? product.images : [D.brand.ambient_img];
+        if (v.image && gallery.includes(v.image)) activeImgIdx = gallery.indexOf(v.image);
+        const mainImg = (activeImgIdx === 0 && v.image) ? v.image : (gallery[activeImgIdx] || gallery[0]);
+        const liked = MistApp.getWish().includes(product.id);
+        const waConsult = `https://wa.me/${D.brand.whatsapp}?text=${encodeURIComponent(`Hola Mist Design! Quiero consultar o personalizar: ${product.title} (${v.sku || product.slug}).`)}`;
+
+        const variantsBlock = (product.variants && product.variants.length > 1) ? `
+          <div style="margin-top:0.9rem;">
+            <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);">
+              ${product.options && product.options[0] ? product.options[0].title : 'Acabado / Variante'}
+            </div>
+            <div class="variant-grid">
+              ${product.variants.map((vr, i) => `
+                <button type="button" class="variant-btn ${i === activeVariantIdx ? 'active' : ''}" data-v="${i}">
+                  ${(vr.options && vr.options.length) ? vr.options.join(' / ') : vr.title}
+                </button>
+              `).join('')}
+            </div>
+          </div>` : '';
+
+        document.getElementById('pdpRoot').innerHTML = `
+          <div class="pdp-shell">
+            <div>
+              <div class="pdp-gallery-grid">
+                <div class="pdp-thumb-col">
+                  ${gallery.slice(0, 6).map((im, i) => `
+                    <button type="button" class="pdp-thumb ${i === activeImgIdx ? 'active' : ''}" data-img="${i}">
+                      <img src="${im}" alt="${product.title} vista ${i + 1}">
+                    </button>
+                  `).join('')}
+                </div>
+                <div class="pdp-main-img">
+                  <img src="${mainImg}" alt="${product.title}">
+                </div>
+              </div>
+
+              <div style="margin-top:1.1rem;">
+                <div class="acc-pill open">
+                  <button type="button" class="acc-btn" onclick="this.parentElement.classList.toggle('open')">
+                    <span>Materiales e instrucciones de cuidado</span><span>+</span>
+                  </button>
+                  <div class="acc-body">
+                    Madera maciza de Flor Morado, espumas de alta densidad y telas inteligentes pet-friendly y antifluido de fácil lavado diario o cuero nacional curado.
+                  </div>
+                </div>
+                <div class="acc-pill">
+                  <button type="button" class="acc-btn" onclick="this.parentElement.classList.toggle('open')">
+                    <span>Producción artesanal (20 días) y envíos</span><span>+</span>
+                  </button>
+                  <div class="acc-body">
+                    Tiempo de producción bajo pedido de 20 días hábiles + envío nacional (5 a 10 días). Pregunta por piezas con entrega inmediata en Bogotá.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="mist-kicker">${primaryCol}</span>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap;">
+                <h1 class="mist-h2" style="font-size:2.15rem;">${product.title}</h1>
+                <div style="font-size:1.4rem; font-weight:700; color:var(--forest-btn);">${MistApp.formatCOP(v.price || product.price)}</div>
+              </div>
+              ${product.subtitle && product.subtitle !== product.title ? `<p style="font-size:0.86rem; color:var(--muted); margin:0.4rem 0 0;">${product.subtitle}</p>` : ''}
+              ${v.sku ? `<div style="font-size:0.74rem; color:var(--muted); margin-top:0.45rem;">SKU: <strong>${v.sku}</strong></div>` : ''}
+
+              ${variantsBlock}
+
+              <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; margin-top:1.25rem;">
+                <div style="display:inline-flex; align-items:center; gap:0.45rem; border:1px solid var(--hairline); border-radius:999px; padding:0.35rem 0.75rem;">
+                  <button type="button" id="qtyMinus" style="border:0;background:transparent;font-weight:700;">−</button>
+                  <span style="font-weight:700; min-width:20px; text-align:center;">${qty}</span>
+                  <button type="button" id="qtyPlus" style="border:0;background:transparent;font-weight:700;">+</button>
+                </div>
+                <button type="button" class="btn-mist" id="pdpAddBtn" style="flex:1;">Comprar ahora &rarr;</button>
+                <button type="button" class="mist-circle-btn ${liked ? 'active' : ''}" data-pid="${product.id}" onclick="MistApp.toggleWish('${product.id}')" style="width:40px; height:40px; background:${liked ? 'var(--terra)' : 'var(--forest)'};">${liked ? '♥' : '♡'}</button>
+              </div>
+
+              <div style="margin-top:0.75rem;">
+                <a href="${waConsult}" target="_blank" rel="noopener" class="btn-mist-outline" style="width:100%;">Consultar disponibilidad inmediata por WhatsApp</a>
+              </div>
+
+              ${product.description_html ? `<div class="pdp-rich-desc">${product.description_html}</div>` : ''}
+            </div>
+          </div>
+        `;
+
+        document.querySelectorAll('[data-v]').forEach(btn => {
+          btn.addEventListener('click', () => { activeVariantIdx = Number(btn.dataset.v); renderPDP(); });
+        });
+        document.querySelectorAll('[data-img]').forEach(btn => {
+          btn.addEventListener('click', () => { activeImgIdx = Number(btn.dataset.img); renderPDP(); });
+        });
+        document.getElementById('qtyMinus')?.addEventListener('click', () => { qty = Math.max(1, qty - 1); renderPDP(); });
+        document.getElementById('qtyPlus')?.addEventListener('click', () => { qty += 1; renderPDP(); });
+        document.getElementById('pdpAddBtn')?.addEventListener('click', () => {
+          MistApp.addToCart(product.id, activeVariantIdx, qty);
+        });
+      };
+
+      renderPDP();
+
+      const related = D.products.filter(p =>
+        p.id !== product.id &&
+        p.collections.some(c => product.collections.includes(c))
+      ).slice(0, 4);
+      document.getElementById('relatedGrid').innerHTML = related.map(MistApp.renderProductCard).join('');
+    })();
+  </script>
+</body>
+</html>
